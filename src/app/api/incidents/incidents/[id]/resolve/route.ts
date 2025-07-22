@@ -17,6 +17,7 @@ export async function PATCH(request: Request, { params }: { params: { id: string
     });
     return NextResponse.json(updatedIncident);
   } catch (error) {
+    console.error(`API Error resolving incident ${incidentId}:`, error);
     return NextResponse.json({ error: `Incident with ID ${incidentId} not found` }, { status: 404 });
   }
 }
